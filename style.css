@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Georgia, 'Segoe UI', '微软雅黑', 'Noto Sans CJK SC', serif;
+    background: linear-gradient(135deg, #E8F4E8 0%, #D8EDD8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poem-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 80px 50px;
+    box-shadow: 0 8px 30px rgba(100, 150, 100, 0.12);
+    margin-bottom: 50px;
+    animation: slideIn 0.8s ease-out;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-card.refresh {
+    animation: fadeOut 0.3s ease-out, slideIn 0.6s ease-out 0.3s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.poem-content {
+    font-size: 1.5rem;
+    line-height: 2.4;
+    color: #5a7a52;
+    text-align: center;
+    white-space: pre-wrap;
+    word-spacing: 0.1em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+}
+
+.btn-random {
+    background: transparent;
+    color: #6BA86B;
+    border: 1px solid #6BA86B;
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    letter-spacing: 0.5px;
+    font-family: Georgia, serif;
+}
+
+.btn-random:hover {
+    background: #6BA86B;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 168, 107, 0.25);
+}
+
+.btn-random:active {
+    transform: translateY(0);
+}
+
+.btn-random:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .poem-card {
+        padding: 60px 35px;
+        min-height: 200px;
+        border-radius: 12px;
+    }
+
+    .poem-content {
+        font-size: 1.3rem;
+        line-height: 2.2;
+    }
+
+    .btn-random {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .poem-card {
+        padding: 50px 25px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+
+    .poem-content {
+        font-size: 1.1rem;
+        line-height: 2;
+    }
+
+    .btn-random {
+        padding: 9px 20px;
+        font-size: 0.85rem;
+    }
+}
